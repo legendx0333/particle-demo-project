@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ParticleAuthkit } from "./lib/AuthKit";
+import { ParticleConnectkit } from "./lib/ConnectKit";
+// import { ParticleAuthkit } from "./lib/AuthKit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ParticleAuthkit>
+        <ParticleConnectkit>
           {children}
-        </ParticleAuthkit>
+        </ParticleConnectkit>
       </body>
     </html>
   );

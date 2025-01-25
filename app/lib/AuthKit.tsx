@@ -9,24 +9,27 @@ import {
 import { polygon } from '@particle-network/authkit/chains'; // Chains are imported here
 import { EntryPosition } from '@particle-network/wallet';
 
-const VLR_CONTRACT_ADDRESS = '0x221d160BA7E3552FeE22A33B3982AD408C3D6E65';
-const NFT_CONTRACT_ADDRESS = '0x59350e35D077e43b05c93a86ea29A0c7fb023a9F';
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!;
+const clientKey = process.env.NEXT_PUBLIC_CLIENT_KEY!;
+const appId = process.env.NEXT_PUBLIC_APP_ID!;
+const VLR_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_VLR_CONTRACT_ADDRESS;
+const NFT_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_NFT_CONTRACT_ADDRESS;
 
 export const ParticleAuthkit = ({ children }: React.PropsWithChildren) => {
 
   return (
     <AuthCoreContextProvider
       options={{
-        projectId: process.env.NEXT_PUBLIC_PARTICLE_PROJECT_ID!,
-        clientKey: process.env.NEXT_PUBLIC_PARTICLE_CLIENT_KEY!,
-        appId: process.env.NEXT_PUBLIC_PARTICLE_APP_ID!,
+        projectId: projectId!,
+        clientKey: clientKey!,
+        appId: appId!,
         // authTypes: [AuthType.email, AuthType.google, AuthType.twitter, AuthType.github],
         themeType: 'dark',
         // List the chains you want to include
         chains: [polygon],
         erc4337: {
           name: 'SIMPLE',
-          version: '1.0.0',
+          version: '2.0.0',
         },
         
         // erc4337: {
