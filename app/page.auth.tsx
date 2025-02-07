@@ -47,7 +47,7 @@ export default function Home() {
   ), [smartAccount]);
 
   useEffect(() => {
-    if(!particleConnected || !ethersProvider || !smartAccount) return;
+    if (!particleConnected || !ethersProvider || !smartAccount) return;
     ethersProvider
       .getSigner()
       .then(setSigner);
@@ -68,7 +68,7 @@ export default function Home() {
 
   const handleMint = useCallback(async () => {
     try {
-      if(!NFTContract) return;
+      if (!NFTContract) return;
       const tx = await NFTContract.createMultiToken([DEFAULT_IPFS_URI]);
       const { hash } = await tx.wait();
       console.log("Mint hash:", hash);

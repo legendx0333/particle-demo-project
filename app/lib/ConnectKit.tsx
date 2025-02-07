@@ -3,7 +3,7 @@
 import { ConnectKitProvider, createConfig } from '@particle-network/connectkit';
 import { aa } from '@particle-network/connectkit/aa';
 import { authWalletConnectors } from '@particle-network/connectkit/auth';
-import { defineChain, polygon } from '@particle-network/connectkit/chains';
+import { defineChain, polygon, base } from '@particle-network/connectkit/chains';
 import { evmWalletConnectors } from '@particle-network/connectkit/evm';
 import { EntryPosition, wallet } from '@particle-network/connectkit/wallet';
 import React from 'react';
@@ -21,10 +21,10 @@ if (!projectId || !clientKey || !appId) {
 }
 
 const customPolygon = defineChain({
-    id: polygon.id,
-    name: polygon.name,
-    nativeCurrency: polygon.nativeCurrency,
-    blockExplorers: polygon.blockExplorers,
+    id: base.id,
+    name: base.name,
+    nativeCurrency: base.nativeCurrency,
+    blockExplorers: base.blockExplorers,
     rpcUrls: {
         default: {
             http: [process.env.NEXT_PUBLIC_POLYGON_RPC_URL!],
